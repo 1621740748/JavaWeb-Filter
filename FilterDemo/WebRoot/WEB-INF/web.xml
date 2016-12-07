@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance http://www.springmodules.org/schema/cache/springmodules-cache.xsd http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd"
+ xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+	
+	<!-- 用户信息放入到session中的关键字 -->
+	<context-param>
+		<param-name>userSession</param-name>
+		<param-value>USERSISSION</param-value>
+	</context-param>
+	<!-- 未登入，需重定向的页面 -->
+	<context-param>
+		<param-name>rediretPage</param-name>
+		<param-value>/login/login.jsp</param-value>
+	</context-param>
+	<!-- 不需要拦截或检查的url
+	<context-param>
+		<param-name>uncheckedUrl</param-name>
+		<param-value>/login/a.jsp,/login/list.jsp,/login/login.jsp,/LogServlet</param-value>
+	</context-param>
+	
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.gqx.login.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/login/*</url-pattern>
+	</filter-mapping>
+	-->
+	<!-- 编码处理过滤器1
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.gqx.encodeFilter.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+		-->
+	
+	 
+	<filter>
+		<filter-name>DataFilter</filter-name>
+		<filter-class>com.gqx.discussFilter.DataFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>DataFilter</filter-name>
+		<url-pattern>/DisServlet</url-pattern>
+	</filter-mapping>
+
+  <display-name>FilterDemo</display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>com.gqx.filter.IndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServletTets</servlet-name>
+    <servlet-class>com.gqx.filter.ServletTets</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.gqx.encodeFilter.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DisServlet</servlet-name>
+    <servlet-class>com.gqx.discussFilter.DisServlet</servlet-class>
+  </servlet>
+  
+  
+	<servlet>
+    <servlet-name>LogServlet</servlet-name>
+    <servlet-class>com.gqx.login.LogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogServlet</servlet-name>
+    <url-pattern>/LogServlet</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/IndexServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletTets</servlet-name>
+    <url-pattern>/ServletTets</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DisServlet</servlet-name>
+    <url-pattern>/DisServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
