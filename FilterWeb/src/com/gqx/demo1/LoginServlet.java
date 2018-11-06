@@ -36,6 +36,9 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		//1、获取用户的username
 		String name=request.getParameter("name");
+		System.out.println(name);
+		name=request.getParameter("name");
+		System.out.println(name);
 		//2、调用userDao获取信息，把用户信息放入到session中，
 		User user=userDao.get(name);
 		request.getSession().setAttribute("user", user);
