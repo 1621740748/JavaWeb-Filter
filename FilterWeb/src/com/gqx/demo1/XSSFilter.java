@@ -51,7 +51,7 @@ public class XSSFilter implements Filter {
 					for(String value:values) {
 						if(value!=null&&value.length()>0) {
 							if(isForbid(value)) {
-								System.out.println("参数:"+paramName+",值:"+values+" 不合法！");
+								System.out.println("参数:"+paramName+",值:"+value+" 不合法！");
 								resp.getWriter().write("怀疑收到xss攻击，请联系管理员！");
 								return false;
 							}
