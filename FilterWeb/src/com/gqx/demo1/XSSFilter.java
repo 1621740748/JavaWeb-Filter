@@ -26,6 +26,7 @@ public class XSSFilter implements Filter {
 			,"<iframe"
 			,"<noscript"
 			,"<noiframe"
+			,"alert("
 			};
 
 	@Override
@@ -34,6 +35,7 @@ public class XSSFilter implements Filter {
 	}
     private boolean isForbid(String value) {
     	value=value.toLowerCase();
+    	value=value.replaceAll("\\s*", "");
     	for(String xss:xssPattern) {
     		if(value.indexOf(xss)>=0) {
     			return true;
