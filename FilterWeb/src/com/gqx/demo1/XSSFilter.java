@@ -27,6 +27,12 @@ public class XSSFilter implements Filter {
 			,"<noscript"
 			,"<noiframe"
 			,"alert("
+			,"<img"
+			,"eval("
+			,"script>"
+			,"iframe>"
+			,"onclick="
+			,"onerror="
 			};
 
 	@Override
